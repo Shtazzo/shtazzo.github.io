@@ -86,6 +86,10 @@ links:
       show: true
       href: mailto:emanuele.donno@gmail.com
       icon: fas fa-envelope
+  - pdf:
+      name: pdf
+      show: true
+      href: pdf/CV_ITA.pdf
   - xing:
       name: Xing
       show: false
