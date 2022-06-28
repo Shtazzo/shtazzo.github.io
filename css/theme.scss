@@ -149,7 +149,7 @@ ul {
 /* --------- Tables ---------------------------------------------------------------------------- */
 
 table.darkTable {
-    border: 0px solid #FFFFFF; /*#000000;*/
+    border: 0px solid #FFFFFF; /* #000000; */
     background-color: transparent !important; /* #4A4A4A;*/
     /*width: 100%;*/
     height: auto;
@@ -161,13 +161,12 @@ table.darkTable {
 
 table.darkTable td, table.darkTable th {
     border: 0px solid #FFFFFF;
-    padding: 3px 2px;
+    padding: 10px; /* 2px; */
 }
 
 table.darkTable tbody td {
     font-size: 13px;
     color: #FFFFFF;
-    padding: 1px;
 }
 
 table.darkTable thead {
@@ -178,7 +177,6 @@ table.darkTable thead th {
     font-weight: bold;
     color: #FFFFFF;
     text-align: left;
-    padding: 1px;
 }
 
 table.darkTable tfoot {
@@ -188,5 +186,4 @@ table.darkTable tfoot {
 }
 table.darkTable tfoot td {
     font-size: 12px;
-    padding: 1px;
 }
