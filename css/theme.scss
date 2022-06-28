@@ -158,22 +158,29 @@ table.darkTable {
     margin-left: auto;
     margin-right: auto;
 }
+
 table.darkTable td, table.darkTable th {
     border: 0px solid #FFFFFF;
     padding: 3px 2px;
 }
+
 table.darkTable tbody td {
     font-size: 13px;
     color: #FFFFFF;
+    padding: 1px;
 }
+
 table.darkTable thead {
 }
+
 table.darkTable thead th {
     font-size: 15px;
     font-weight: bold;
     color: #FFFFFF;
     text-align: left;
+    padding: 1px;
 }
+
 table.darkTable tfoot {
     font-size: 12px;
     font-weight: bold;
@@ -181,4 +188,5 @@ table.darkTable tfoot {
 }
 table.darkTable tfoot td {
     font-size: 12px;
+    padding: 1px;
 }
