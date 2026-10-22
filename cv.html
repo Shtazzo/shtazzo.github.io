@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emanuele Donno — CV</title>
+  <meta name="description" content="Curriculum vitae of Emanuele Donno, Computer Engineer and PhD student in Quantum Computing & Quantum ML for climate science.">
+  <link rel="canonical" href="https://shtazzo.github.io/cv.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-weight='700' font-size='26' text-anchor='middle' fill='white'%3EED%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root { --ink: #2b2f36; --head: #1e2a3b; --muted: #6b7280; --rule: #e3e6ea; --chip: #f1f3f5; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #e6e8ec; font-family: Lato, 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    @media (prefers-color-scheme: dark) { body { background: #16181d; } }
+
+    /* ---------- Screen toolbar (hidden in print) ---------- */
+    .toolbar {
+      position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      padding: 10px 16px; background: rgba(20, 22, 30, .92); color: #e9ebf8; font-size: 14px;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    }
+    .toolbar a { color: inherit; text-decoration: none; opacity: .85; }
+    .toolbar a:hover { opacity: 1; }
+    .toolbar .hint { margin-left: auto; opacity: .6; font-size: 12.5px; }
+    .toolbar button {
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 0; border-radius: 10px; cursor: pointer;
+      font: 700 14px Lato, sans-serif; color: #fff; background: linear-gradient(120deg, #8b5cf6, #22d3ee);
+    }
+    @media (max-width: 640px) { .toolbar .hint { display: none; } .toolbar button { margin-left: auto; } }
+
+    /* ---------- The sheet ---------- */
+    .paper {
+      max-width: 210mm; margin: 28px auto; padding: 18mm 20mm; background: #fff; color: var(--ink);
+      font-size: 10.5pt; line-height: 1.45; box-shadow: 0 20px 60px -20px rgba(0, 0, 0, .35);
+    }
+    @media (max-width: 640px) { .paper { margin: 0; padding: 28px 18px; box-shadow: none; } }
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1 { margin: 0; font-size: 28pt; line-height: 1.1; color: var(--head); letter-spacing: -.01em; }
+    .roles { margin: 4px 0 0; padding-bottom: 7px; border-bottom: 1px solid var(--rule); color: var(--muted); font-size: 11.5pt; }
+    .bar + .bar::before { content: "|"; margin: 0 6px; color: #c5c9cf; }
+    .contacts { display: flex; flex-wrap: wrap; row-gap: 3px; margin: 8px 0 0; font-size: 10pt; }
+    .contacts i { margin-right: 5px; color: var(--head); }
+    .contacts .fa-orcid { color: #a6ce39; }
+    .contacts .break { flex-basis: 100%; }
+    @media (max-width: 640px) {
+      .contacts { flex-direction: column; }
+      .contacts .bar::before, .contacts .break { display: none; }
+    }
+    h2 {
+      margin: 18px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--rule);
+      font-size: 11pt; text-transform: uppercase; letter-spacing: .02em; color: var(--head); break-after: avoid;
+    }
+    p { margin: 0; }
+    .muted { color: var(--muted); }
+    .small { font-size: 9pt; }
+    .skills { display: grid; grid-template-columns: 37mm 1fr; gap: 3px 12px; margin: 0; }
+    .skills dt { font-weight: 700; color: var(--head); }
+    .skills dt small { display: block; font: italic 8.5pt Lato, sans-serif; color: var(--muted); }
+    .skills dd { margin: 0; }
+    @media (max-width: 640px) { .skills { grid-template-columns: 1fr; } .skills dd { margin-bottom: 6px; } }
+    .entry { margin-bottom: 12px; break-inside: avoid; }
+    .entry-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .entry-head .when { color: var(--muted); white-space: nowrap; }
+    .entry-head .sep { margin: 0 6px; color: #c5c9cf; }
+    ul.list { margin: 6px 0 0; padding-left: 18px; }
+    ul.list > li { margin-bottom: 4px; break-inside: avoid; }
+    .tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0 2px; padding: 0; list-style: none; }
+    .tags li { padding: 1px 7px; background: var(--chip); color: #4b5563; font-size: 8pt; }
+
+    @page { size: A4; margin: 16mm 18mm; }
+    @media print {
+      body { background: none; }
+      .toolbar { display: none; }
+      .paper { max-width: none; margin: 0; padding: 0; box-shadow: none; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <header class="toolbar">
+    <a href="./"><i class="fa-solid fa-arrow-left"></i> Back to site</a>
+    <span class="hint">In the print dialog choose “Save as PDF” and untick “Headers and footers”.</span>
+    <button type="button" onclick="print()"><i class="fa-solid fa-download"></i> Download PDF</button>
+  </header>
+
+  <main class="paper">
+    <h1>Emanuele Donno</h1>
+    <p class="roles"><span class="bar">Computer Engineer</span><span class="bar">ML/AI Engineer</span><span class="bar">PhD Student</span><span class="bar">Quantum Computing &amp; Quantum ML</span></p>
+    <p class="contacts">
+      <span class="bar"><i class="fa-solid fa-location-dot"></i>Lecce, Italy</span>
+      <span class="bar"><a href="mailto:emanuele.donno@gmail.com"><i class="fa-solid fa-envelope"></i>emanuele.donno@gmail.com</a></span>
+      <span class="bar"><a href="https://shtazzo.github.io"><i class="fa-solid fa-globe"></i>shtazzo.github.io</a></span>
+      <span class="bar"><a href="https://linkedin.com/in/emanuele-donno"><i class="fa-brands fa-linkedin"></i>linkedin.com/in/emanuele-donno</a></span>
+      <span class="break"></span>
+      <span class="bar"><a href="https://github.com/Shtazzo"><i class="fa-brands fa-github"></i>github.com/Shtazzo</a></span>
+      <span class="bar"><a href="https://orcid.org/0009-0006-2126-4816"><i class="fa-brands fa-orcid"></i>0009-0006-2126-4816</a></span>
+    </p>
+
+    <h2>Professional Summary</h2>
+    <p>Licensed <b>Computer Engineer</b> (Order of Engineers, Lecce – Sec. A, Sector C, since 06/2024) and <b>PhD Student</b> in Engineering of Complex Systems at Università del Salento, working on <b>Quantum Computing</b> and <b>Quantum Machine Learning</b> for Climate Science. About 18 months as Post-Degree Researcher at the Euro-Mediterranean Centre on Climate Change (CMCC), working on <b>end-to-end ML/DL pipelines</b> on multidimensional NetCDF climate datasets and on <b>ML4Fires</b>, the wildfire-forecasting thematic module of the EU <b>InterTwin</b> Digital Twin project, on HPC infrastructure. Full-stack engineering background from MSc projects and thesis work, covering <b>Python</b>, <b>Java/Spring Boot REST</b>, <b>Angular/Ionic</b>, <b>Docker</b>, <b>Git</b> and <b>MPI/HPC</b>. First author of a preprint on quantum data assimilation under review at FGCS; co-author of peer-reviewed and preprint contributions on Digital Twins and ML for extreme weather events.</p>
+
+    <h2>Technical Skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt><dd>Python, Java, TypeScript, C, SQL, Shell/Bash, Matlab, LaTeX</dd>
+      <dt>AI &amp; ML</dt><dd>PyTorch, TensorFlow, Keras, Scikit-Learn, Computer Vision, end-to-end ML pipelines, distributed training</dd>
+      <dt>LLM &amp; GenAI <small>(personal projects)</small></dt><dd>Ollama (local LLMs), Hugging Face, RAG, prompt engineering, LLM-assisted dev workflow (Claude Code, ChatGPT, Gemini)</dd>
+      <dt>Quantum <small>(learning during PhD)</small></dt><dd>Qiskit, PennyLane, Quantum Computing, Quantum Machine Learning, Quantum Circuits, Quantum Data Assimilation</dd>
+      <dt>Backend &amp; Infra</dt><dd>Spring Boot, REST APIs, Docker, Git, MPI/MPICH, HPC, Linux/Unix</dd>
+      <dt>Frontend</dt><dd>Angular, Ionic, TypeScript, HTML5/CSS, Firebase</dd>
+      <dt>Data &amp; Storage</dt><dd>NumPy, Pandas, NetCDF, Xarray, Cartopy, MySQL, MongoDB, SQLite</dd>
+    </dl>
+
+    <h2>Professional Experience</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span><b>Post-Degree Researcher</b><span class="sep">|</span><i>CMCC Foundation – ADIC Division (Lecce, Italy)</i></span>
+        <span class="when">06/2023 – 11/2024</span>
+      </div>
+      <p class="muted">Advanced Scientific Computing for Climate Change</p>
+      <ul class="list">
+        <li>Worked on <b>ML4Fires</b> (<a href="https://github.com/CMCC-Foundation/ML4Fires">github.com/CMCC-Foundation/ML4Fires</a>), the wildfire-forecasting thematic module of the EU <b>InterTwin</b> project (Grant Agreement 101058386), within the Environmental Digital Twin Engine for wildfire propagation and projection at global scale.</li>
+        <li>Worked on <b>end-to-end ML/DL pipelines</b> (data preparation, feature engineering, training, evaluation) for CNN, U-Net and U-Net++ architectures on a global multi-source climate datacube called <b>SeasFire Cube v3</b> (NetCDF/Xarray) and CMIP6 SSP projections in inference.</li>
+        <li>Helped migrate the training stack from <b>TensorFlow to PyTorch</b> and run it in <b>multi-node, multi-GPU distributed training</b> on HPC infrastructure; ran containerized inference on HPC.</li>
+        <li>Adopted <b>MLflow</b> for experiment tracking and reproducibility of training runs.</li>
+      </ul>
+    </div>
+
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-head"><b>PhD in Engineering of Complex Systems</b><span class="when">2024 – Present</span></div>
+      <p><i>Università del Salento – Lecce, Italy</i></p>
+      <p>Research project: <i>Quantum Computing and Quantum Machine Learning approaches for Climate Change applications.</i></p>
+    </div>
+    <div class="entry">
+      <div class="entry-head"><span><b>M.Sc. in Computer Engineering</b><span class="sep">|</span>Grade: 105/110</span><span class="when">2019 – 2023</span></div>
+      <p><i>Università del Salento – Lecce, Italy</i></p>
+      <p>Thesis: <i>Global downscaling of remotely sensed soil-moisture retrievals using Machine Learning.</i></p>
+      <p class="muted small" style="margin-top:4px">Relevant coursework: Big Data Management, High Performance Computing, Computer Vision, Software Engineering, Internet of Things, Parallel &amp; Sequential Algorithms, Network Technologies.</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head"><span><b>B.Sc. in Information Engineering</b><span class="sep">|</span>Grade: 97/110</span><span class="when">2016 – 2019</span></div>
+      <p><i>Università del Salento – Lecce, Italy</i></p>
+      <p>Thesis: <i>Design and development of a back-end subsystem for an event-management service (Spring Boot REST).</i></p>
+    </div>
+
+    <h2>Publications &amp; Preprints</h2>
+    <p>Full list and metrics: <a href="https://orcid.org/0009-0006-2126-4816"><i class="fa-brands fa-orcid" style="color:#a6ce39"></i> orcid.org/0009-0006-2126-4816</a></p>
+    <ul class="list">
+      <li><b>interTwin: Advancing Scientific Digital Twins through AI, Federated Computing and Data.</b><br>
+        <i>Future Generation Computer Systems (FGCS) – The International Journal of eScience</i>, 2026. Journal article.<br>
+        DOI: <a href="https://doi.org/10.1016/j.future.2025.108312">10.1016/j.future.2025.108312</a> <span class="muted small">(WOS:001651938800001)</span></li>
+      <li><b>From Classical to Quantum-Mechanical Data Assimilation: A Comparison between DATO and QMDA.</b><br>
+        <u>E. Donno</u>, G. Conti, P. Oddo, S. Gualdi, L. Mainetti, G. Aloisio.<br>
+        <i>Submitted to Future Generation Computer Systems (FGCS), Special Collection on Advances in Quantum Computing: Methods, Algorithms, and Systems. Vol. III (Under review)</i><br>
+        <i>Preprint (arXiv)</i>, May 2026. &nbsp; arXiv: <a href="https://arxiv.org/abs/2605.04881">2605.04881</a></li>
+      <li><b>Facilitating the development of Machine Learning-based Digital Twin applications for extreme weather events.</b><br>
+        D. Elia, <u>E. Donno</u>, M. Bunino, M. Fronza, D. Donno, G. Padovani, S. Fiore, A. Manzi.<br>
+        <i>EGU General Assembly 2025 – Preprint</i>, March 2025.<br>
+        DOI: <a href="https://doi.org/10.5194/egusphere-egu25-13888">10.5194/egusphere-egu25-13888</a></li>
+      <li><b>A Data Space environment for Big Data and ML-based Climate applications in the European Open Science Cloud.</b><br>
+        D. Elia, F. Antonio, S. Fiore, <u>E. Donno</u>, G. Accarino, P. Nassisi, G. Aloisio.<br>
+        <i>EGU General Assembly 2024 – Preprint</i>, January 2025.<br>
+        DOI: <a href="https://doi.org/10.5194/egusphere-egu24-17472">10.5194/egusphere-egu24-17472</a></li>
+    </ul>
+
+    <h2>Selected Projects</h2>
+    <ul class="list">
+      <li><b>ML4Fires – InterTwin Digital Twin Engine</b><br>
+        Core ML/DL component of an Environmental Digital Twin for global wildfire propagation, integrated into the EU InterTwin platform; reproducible training pipeline distributed on HPC. <a href="https://github.com/CMCC-Foundation/ML4Fires">github.com/CMCC-Foundation/ML4Fires</a>
+        <ul class="tags"><li>PyTorch</li><li>DeepLearning</li><li>DigitalTwin</li><li>Climate</li><li>HPC</li><li>Python</li></ul></li>
+      <li><b>Global Soil-Moisture Downscaling</b><br>
+        ML-based downscaling of satellite-derived soil-moisture products on the EASE 2.0 grid; pipelines for multidimensional Earth-observation datasets.
+        <ul class="tags"><li>MachineLearning</li><li>DeepLearning</li><li>RemoteSensing</li><li>NetCDF</li><li>Xarray</li><li>Python</li><li>PyTorch</li></ul></li>
+      <li><b>Social Tech Platform – Full-Stack</b><br>
+        LinkedIn-style multi-user platform: Angular + Ionic frontend, Spring Boot REST backend, Firebase for push and bulk notifications; end-to-end ownership from architecture to deployment.
+        <ul class="tags"><li>Angular</li><li>SpringBoot</li><li>Ionic</li><li>Firebase</li><li>TypeScript</li><li>REST</li></ul></li>
+      <li><b>Drupal CMS Plugin for Remote Learning</b><br>
+        Drupal content-management plugin backed by a Spring Boot service over a Materialized-Table relational schema; Angular web client; stored procedures for config/data exchange between backends.
+        <ul class="tags"><li>Drupal</li><li>SpringBoot</li><li>MySQL</li><li>Angular</li><li>Java</li></ul></li>
+      <li><b>MAD – My Accessible Data</b><br>
+        Multi-user system for secure personal-data management using IOTA’s Masked Authenticated Messaging (MAM) protocol over the Tangle blockchain; Angular/Ionic frontend, Spring Boot REST backend.
+        <ul class="tags"><li>Blockchain</li><li>IOTA</li><li>IoT</li><li>Java</li><li>Angular</li></ul></li>
+      <li><b>Parallel Fast Hartley Transform (FHT)</b><br>
+        Parallel design and implementation of the Fast Hartley Transform (FHT) in the one-dimensional case, using the message passing C library MPICH.
+        <ul class="tags"><li>C</li><li>MPI</li><li>ParallelComputing</li></ul></li>
+      <li><b>COVID-19 Spread Modeling</b><br>
+        Polynomial and multivariate regression, and Kalman filtering applied to Covid-19 spread modeled with the SIR compartmental model.
+        <ul class="tags"><li>Python</li><li>DataAnalysis</li><li>Scipy</li><li>Scikit-Learn</li></ul></li>
+    </ul>
+
+    <h2>Certifications &amp; Awards</h2>
+    <ul class="list">
+      <li><b>Samsung Innovation Camp</b> – Diploma in Innovation &amp; Technology, Business Strategy, Digital Marketing (Mar. 2019).</li>
+      <li><b>IELTS Academic</b> – English proficiency, Overall 6.0/9.0, CEFR B2 (Jul. 2019).</li>
+      <li><b>ICIAP 2021</b> – 21st International Conference on Image Analysis and Processing (May 2022).</li>
+      <li><b>Professional Engineering License</b> – Order of Engineers of Lecce (Sec. A, Sector C, N° 4507), since 25/06/2024.</li>
+      <li><b>JUNIQ-EPIQ Summer School on Quantum Computing</b> – Forschungszentrum Jülich; gate-based algorithms and quantum annealing (Sep. 2025).</li>
+      <li><b>Quantum Machine Learning with Python &amp; Qiskit</b> – IBM SkillsBuild; building basic and advanced models, implementing algorithms, challenges and future prospects (May 2026).</li>
+      <li><b>Introduction to FastAPI</b> – DataCamp (Jun. 2026).</li>
+      <li><b>Introduction to Power BI</b> – DataCamp (Jun. 2026).</li>
+      <li><b>Large Language Models (LLMs) Concepts</b> – DataCamp (Jun. 2026).</li>
+    </ul>
+    <p style="margin-top:12px"><b>Languages.</b> Italian (native), English (CEFR B2 – IELTS Academic 6.0/9.0).</p>
+  </main>
+
+  <script>
+    // Suggest a clean file name when the visitor saves the PDF
+    const pageTitle = document.title;
+    addEventListener('beforeprint', () => document.title = 'CV_Emanuele_Donno');
+    addEventListener('afterprint', () => document.title = pageTitle);
+  </script>
+</body>
+</html>
