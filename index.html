@@ -17,7 +17,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Tiny5&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script>
     // Apply the saved theme before first paint; 'auto' follows the OS setting
@@ -297,6 +297,25 @@
       --nav-bg: #000;
       --blob: 0;
       --on-accent: #000;
+      color-scheme: dark;
+    }
+    [data-theme="minecraft"] {
+      --bg: #1e140c;
+      --surface: rgba(0, 0, 0, .55);
+      --surface-2: rgba(255, 255, 255, .1);
+      --border: #4a4a4a;
+      --text: #ffffff;
+      --muted: #d0d0d0;
+      --faint: #9a9a9a;
+      --a1: #55ff55;
+      --a2: #ffff55;
+      --a3: #55ffff;
+      --glow: rgba(85, 255, 85, .12);
+      --nav-bg: rgba(20, 13, 8, .88);
+      --blob: 0;
+      --radius: 0px;
+      --on-accent: #1a1a1a;
+      --font-display: 'Tiny5', Inter, monospace;
       color-scheme: dark;
     }
     /* Theme extras beyond colors */
@@ -586,6 +605,58 @@
     .contact .email { font: 600 clamp(1.05rem, 3vw, 1.4rem) var(--font-display); text-decoration: none; word-break: break-all; }
     footer { text-align: center; color: var(--faint); font-size: .88rem; padding: 0 16px 40px; }
 
+    /* ---------- Minecraft theme (original pixel art, textures generated in JS) ---------- */
+    [data-theme="minecraft"] *, [data-theme="minecraft"] *::before, [data-theme="minecraft"] *::after { border-radius: 0 !important; }
+    [data-theme="minecraft"], .party { font-synthesis: none; } /* faux-bold smears pixel fonts */
+    [data-theme="minecraft"] .backdrop { background: linear-gradient(rgba(0, 0, 0, .62), rgba(0, 0, 0, .62)), var(--mc-dirt) 0 0 / 64px 64px; }
+    [data-theme="minecraft"] .backdrop::after, [data-theme="minecraft"] .ring { display: none; }
+    [data-theme="minecraft"] h1, [data-theme="minecraft"] h2 { letter-spacing: 0; }
+    [data-theme="minecraft"] .card {
+      background: rgba(0, 0, 0, .55); border: 2px solid #000; border-top: 6px solid #5d9c36;
+      box-shadow: inset 2px 2px rgba(255, 255, 255, .12), inset -2px -2px rgba(0, 0, 0, .5);
+      backdrop-filter: none; -webkit-backdrop-filter: none;
+    }
+    [data-theme="minecraft"] .card:hover { border-color: #000; border-top-color: #7cbd3a; }
+    [data-theme="minecraft"] :is(.btn, .btn.primary, .socials a, .link-btn, .theme-btn) {
+      background: #6f6f6f; color: #fff; border: 2px solid #000; font-family: var(--font-display);
+      box-shadow: inset 2px 2px #a8a8a8, inset -2px -2px #4a4a4a; text-shadow: 2px 2px #3a3a3a;
+    }
+    [data-theme="minecraft"] :is(.btn, .socials a, .link-btn, .theme-btn):hover {
+      background: #7b88c4; border-color: #000; transform: none;
+      box-shadow: inset 2px 2px #b6c0ee, inset -2px -2px #4e5a91;
+    }
+    [data-theme="minecraft"] .orbit img { box-shadow: 0 0 0 4px #000, 0 0 0 9px #6f6f6f, 0 0 0 11px #000; }
+    .sw.mc { background: var(--mc-side) center / cover; }
+
+    /* The spinning grass block is the secret button (Minecraft theme only) */
+    .mc-block { display: none; position: absolute; right: 2%; bottom: 4%; width: 64px; height: 64px; padding: 0; border: 0; background: none; cursor: pointer; perspective: 600px; }
+    [data-theme="minecraft"] .mc-block { display: block; }
+    .mc-block:hover .cube { animation-duration: 2s; }
+    .cube { position: absolute; inset: 0; transform-style: preserve-3d; transform: rotateX(-24deg) rotateY(35deg); animation: cube 9s linear infinite; }
+    @keyframes cube { from { transform: rotateX(-24deg) rotateY(0); } to { transform: rotateX(-24deg) rotateY(360deg); } }
+    .cube i { position: absolute; inset: 0; background: var(--mc-side) center / cover; }
+    .cube i:nth-child(1) { transform: translateZ(32px); }
+    .cube i:nth-child(2) { transform: rotateY(90deg) translateZ(32px); }
+    .cube i:nth-child(3) { transform: rotateY(180deg) translateZ(32px); }
+    .cube i:nth-child(4) { transform: rotateY(-90deg) translateZ(32px); }
+    .cube i:nth-child(5) { transform: rotateX(90deg) translateZ(32px); background-image: var(--mc-top); }
+    .cube i:nth-child(6) { transform: rotateX(-90deg) translateZ(32px); background-image: var(--mc-dirt); }
+
+    /* Celebration overlay */
+    .party { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; pointer-events: none; background: rgba(0, 0, 0, .5); transition: opacity .5s; }
+    .party[hidden] { display: none; }
+    .party.out { opacity: 0; }
+    .party canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .party-msg { position: relative; text-align: center; padding: 0 16px; animation: pop .5s cubic-bezier(.2, 1.6, .4, 1) both; }
+    .party-msg p {
+      margin: 0; font: 700 clamp(2.4rem, 9vw, 7rem)/1.05 'Tiny5', monospace; text-transform: uppercase;
+      color: #ffff55; text-shadow: .06em .06em 0 #3f3f15; animation: splash .45s ease-in-out infinite alternate;
+    }
+    .mc-heart { width: clamp(72px, 12vw, 140px); aspect-ratio: 9 / 8; margin: 0 auto 18px; background: var(--mc-heart) center / contain no-repeat; animation: beat .6s ease-in-out infinite; }
+    @keyframes pop { from { transform: scale(.2); opacity: 0; } }
+    @keyframes splash { to { transform: scale(1.06) rotate(-3deg); } }
+    @keyframes beat { 50% { transform: scale(1.18); } }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -618,6 +689,7 @@
       <button data-set="dark"><span class="sw" style="--c1:#0a0c16;--c2:#8b5cf6"></span>Dark</button>
       <button data-set="ocean"><span class="sw" style="--c1:#04131f;--c2:#0ea5e9"></span>Ocean</button>
       <button data-set="sunset"><span class="sw" style="--c1:#fff6ef;--c2:#ea580c"></span>Sunset</button>
+      <button data-set="minecraft"><span class="sw mc"></span>Minecraft</button>
       <p>Inspired by</p>
       <button data-set="leccese"><span class="sw" style="--c1:#f7f0e1;--c2:#a16207"></span>Pietra Leccese</button>
       <button data-set="aurora"><span class="sw" style="--c1:#06140f;--c2:#34d399"></span>Aurora</button>
@@ -663,6 +735,7 @@
           <img src="images/profilo.jpg" alt="Portrait of Emanuele Donno" width="635" height="900">
           <span class="float f1"><i class="fa-solid fa-atom"></i> Quantum ML</span>
           <span class="float f2"><i class="fa-solid fa-earth-europe"></i> Climate AI</span>
+          <button class="mc-block" type="button" aria-label="Grass block"><span class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></span></button>
         </div>
       </div>
       <a href="#about" class="scroll-hint" aria-label="Scroll down"><i class="fa-solid fa-chevron-down"></i></a>
@@ -914,6 +987,11 @@
 
   <footer>© <span id="year">2026</span> Emanuele Donno · Lecce, Italy</footer>
 
+  <div class="party" id="party" hidden>
+    <canvas></canvas>
+    <div class="party-msg"><div class="mc-heart"></div><p>Congratulazioni<br>Davide</p></div>
+  </div>
+
   <script>
     document.documentElement.classList.add('js');
     const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -933,6 +1011,70 @@
       picker.hidePopover();
     });
     sysLight.addEventListener('change', () => themeChoice === 'auto' && applyTheme('auto'));
+
+    // Minecraft theme: original pixel-art textures (no game assets), built as SVG data URIs
+    const px = (rows, pal) => {
+      let r = '';
+      rows.forEach((row, y) => [...row].forEach((c, x) => { if (pal[c]) r += `<rect x='${x}' y='${y}' width='1' height='1' fill='${pal[c]}'/>`; }));
+      return `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${rows[0].length} ${rows.length}' shape-rendering='crispEdges'>${r}</svg>`)}")`;
+    };
+    let seed = 42;
+    const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647;
+    const grid = f => Array.from({ length: 16 }, (_, y) => Array.from({ length: 16 }, (_, x) => f(x, y, rnd())).join(''));
+    const shade = r => r < .45 ? 'a' : r < .75 ? 'b' : r < .9 ? 'c' : 'd';
+    const dirt = { a: '#866043', b: '#74513a', c: '#9a7252', d: '#5c3f2b' };
+    const grass = { A: '#5d9c36', B: '#518a2e', C: '#6cb040', D: '#467a28' };
+    const drip = [3, 4, 2, 3, 5, 3, 2, 4, 3, 3, 5, 2, 4, 3, 2, 4]; // grass depth per column on the block side
+    const css = document.documentElement.style;
+    css.setProperty('--mc-dirt', px(grid((x, y, r) => shade(r)), dirt));
+    css.setProperty('--mc-top', px(grid((x, y, r) => shade(r).toUpperCase()), grass));
+    css.setProperty('--mc-side', px(grid((x, y, r) => y < drip[x] ? shade(r).toUpperCase() : shade(r)), { ...dirt, ...grass }));
+    css.setProperty('--mc-heart', px(['.KK...KK.', 'KRRK.KRRK', 'KRWRKRRRK', 'KRRRRRRRK', '.KRRRRRK.', '..KRRRK..', '...KRK...', '....K....'],
+      { K: '#2a0505', R: '#e3262e', W: '#ffffff' }));
+
+    // Secret: the grass block launches ~3s of pixel confetti and fireworks
+    const party = document.getElementById('party');
+    document.querySelector('.mc-block').addEventListener('click', () => {
+      if (!party.hidden) return;
+      party.hidden = false;
+      party.classList.remove('out');
+      const cv = party.querySelector('canvas'), ctx = cv.getContext('2d');
+      const W = cv.width = innerWidth, H = cv.height = innerHeight;
+      const colors = ['#55ff55', '#ffff55', '#55ffff', '#ff5555', '#ff55ff', '#5555ff', '#ffaa00', '#ffffff'];
+      const pick = () => colors[Math.random() * colors.length | 0];
+      const bits = Array.from({ length: still ? 0 : 160 }, () => ({
+        x: Math.random() * W, y: -Math.random() * H * .6, vx: (Math.random() - .5) * 3, vy: 2 + Math.random() * 3,
+        s: 6 + Math.random() * 6, spin: Math.random() * 6, g: .06, life: Infinity, c: pick()
+      }));
+      const rockets = Array.from({ length: still ? 0 : 6 }, (_, k) => ({ x: W * (.15 + .7 * Math.random()), y: H, vy: -(10 + Math.random() * 4), wait: k * 12, c: pick() }));
+      const t0 = performance.now();
+      (function frame(t) {
+        ctx.clearRect(0, 0, W, H);
+        for (const r of rockets) {
+          if (r.wait-- > 0 || r.done) continue;
+          r.y += r.vy; r.vy += .22;
+          ctx.fillStyle = r.c; ctx.fillRect(r.x - 3, r.y - 3, 6, 6);
+          bits.push({ x: r.x, y: r.y + 6, vx: (Math.random() - .5), vy: 1, s: 3, spin: 0, g: .05, life: 18, c: '#ffaa00' });
+          if (r.vy > -1) {
+            r.done = true;
+            for (let i = 0; i < 60; i++) {
+              const a = Math.random() * Math.PI * 2, v = 2 + Math.random() * 5;
+              bits.push({ x: r.x, y: r.y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, s: 5, spin: 0, g: .07, life: 70, c: Math.random() < .7 ? r.c : pick() });
+            }
+          }
+        }
+        for (const b of bits) {
+          b.x += b.vx; b.y += b.vy; b.vy += b.g; b.vx *= .99; b.spin += .15; b.life--;
+          ctx.globalAlpha = Math.max(Math.min(1, b.life / 30), 0);
+          ctx.fillStyle = b.c;
+          ctx.fillRect(b.x, b.y, b.spin ? b.s * Math.abs(Math.cos(b.spin)) + 1 : b.s, b.s);
+        }
+        ctx.globalAlpha = 1;
+        if (t - t0 < 2600) return requestAnimationFrame(frame);
+        party.classList.add('out');
+        setTimeout(() => { party.hidden = true; ctx.clearRect(0, 0, W, H); }, 500);
+      })(t0);
+    });
 
     // Rotating "Working on …" line with a typing effect
     const roles = ['Quantum Machine Learning', 'Quantum Data Assimilation', 'Digital Twins for climate', 'Wildfire forecasting', 'Distributed training on HPC'];
